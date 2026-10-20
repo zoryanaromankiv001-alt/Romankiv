@@ -523,19 +523,19 @@ col_left, col_right = st.columns(2)
 
 with col_left:
     st.markdown("#### 📷 Original Image")
-    st.image(orig_rgb, use_container_width=True, caption=f"Original ({w}x{h} px)")
+    st.image(orig_rgb, width="stretch", caption=f"Original ({w}x{h} px)")
 
 with col_right:
     st.markdown("#### 🚀 Processed Output")
     if processed_display is not None:
-        st.image(processed_display, use_container_width=True, caption="Live Processed Result")
+        st.image(processed_display, width="stretch", caption="Live Processed Result")
         if processed_download_bytes:
             st.download_button(
                 label=f"💾 Download {download_filename}",
                 data=processed_download_bytes,
                 file_name=download_filename,
                 mime=mime_type,
-                use_container_width=True
+                use_container_width=True  # kept for download_button (not deprecated here)
             )
 
 # Technical CV Concepts Summary
